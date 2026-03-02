@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Backend Developer CV</title>
+    <meta name="description" content="Backend developer CV showcasing experience with Laravel, NestJS, and HonoJS." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0e1116;
+        --card: #141a21;
+        --ink: #e6ecf2;
+        --muted: #a8b3c2;
+        --accent: #64f1b5;
+        --accent-2: #7aa2ff;
+        --line: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: radial-gradient(1200px 600px at 10% -10%, rgba(122, 162, 255, 0.18), transparent),
+          radial-gradient(900px 500px at 95% 0%, rgba(100, 241, 181, 0.14), transparent),
+          var(--bg);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        letter-spacing: 0.1px;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        padding: 32px;
+        border-radius: 28px;
+        background: linear-gradient(140deg, rgba(20, 26, 33, 0.9), rgba(20, 26, 33, 0.6));
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        animation: rise 0.8s ease-out both;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-portrait {
+        display: grid;
+        place-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar {
+        width: min(180px, 42vw);
+        aspect-ratio: 1 / 1;
+        border-radius: 24px;
+        border: 1px solid rgba(122, 162, 255, 0.4);
+        background: linear-gradient(160deg, rgba(122, 162, 255, 0.22), rgba(100, 241, 181, 0.12));
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 12px;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        display: block;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto -20% -60% -20%;
+        height: 180px;
+        background: linear-gradient(90deg, transparent, rgba(100, 241, 181, 0.18), transparent);
+        filter: blur(22px);
+        opacity: 0.7;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 3.8vw, 3.5rem);
+        margin: 0 0 8px;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 680px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 24px;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        margin-top: 32px;
+      }
+
+      .card {
+        border-radius: 22px;
+        padding: 24px 28px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        animation: fade 0.8s ease-out both;
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 1.3rem;
+        letter-spacing: 0.6px;
+      }
+
+      .card h3 {
+        margin: 0 0 4px;
+        font-size: 1.05rem;
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .role {
+        padding: 16px 0;
+        border-top: 1px dashed var(--line);
+      }
+
+      .role:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .role .tagline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .pill-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(100, 241, 181, 0.3);
+        background: rgba(100, 241, 181, 0.08);
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+
+      .two-col {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .quote {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.05rem;
+        color: #d9e1ec;
+      }
+
+      .project {
+        border-left: 2px solid rgba(122, 162, 255, 0.6);
+        padding-left: 16px;
+        margin-top: 12px;
+      }
+
+      .skills {
+        display: grid;
+        gap: 12px;
+      }
+
+      .skills strong {
+        color: var(--ink);
+      }
+
+      .footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (min-width: 860px) {
+        .grid {
+          grid-template-columns: 1.1fr 0.9fr;
+          align-items: start;
+        }
+
+        .hero {
+          grid-template-columns: 1.2fr 0.6fr;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 24px;
+        }
+
+        .meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>OGHENEDE SUCCESS ODIRI</h1>
+          <p>
+            Backend developer focused on building resilient enterprise platforms with clean architecture,
+            thoughtful API design, and measurable performance gains.
+          </p>
+          <div class="meta">
+            <span>Location: Remote / On-site</span>
+            <span>Email: successoghenede2@gmail.com</span>
+            <span>GitHub: https://github.com/succy2019</span>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="avatar">
+            <!-- Replace with your photo: <img src="your-photo.jpg" alt="Your Name" /> -->
+            Your Photo
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <div class="role">
+              <h3>Backend Developer (Remote)</h3>
+              <div class="tagline">
+                <span>Marolt Agency, Warri</span>
+                <span>2022 - Present</span>
+              </div>
+              <p>
+                Building and maintaining backend services for client projects, focusing on reliability,
+                security, and API consistency across deployments.
+              </p>
+              <ul>
+                <li>Deliver REST APIs and integrations with Laravel and NestJS.</li>
+                <li>Collaborate with product and QA to ship stable releases.</li>
+                <li>Support ongoing maintenance and performance tuning.</li>
+              </ul>
+            </div>
+            <div class="role">
+              <h3>Backend Engineer (Remote)</h3>
+              <div class="tagline">
+                <span>Eleastar Technology</span>
+                <span>2023 - Present</span>
+              </div>
+              <p>
+                Building the backend for Cellus, an upcoming enterprise product. Also delivered multiple
+                production systems, including the Eleastar Jobs platform.
+              </p>
+              <ul>
+                <li>Implemented core services and integrations for Cellus launch readiness.</li>
+                <li>Led backend delivery for https://jobs.eleastar.com.</li>
+                <li>Designed clean APIs with Laravel, NestJS, and HonoJS.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Skills & Expertise</h2>
+          <div class="skills">
+            <p><strong>Backend:</strong> Laravel, NestJS, HonoJS, Node.js, PHP, TypeScript</p>
+            <p><strong>Architecture:</strong> Clean Architecture, DDD, Microservices, API Design</p>
+            <p><strong>Data:</strong> PostgreSQL, MySQL, Redis, Queue Systems</p>
+            <p><strong>DevOps:</strong> Docker, CI/CD, Observability, Performance Tuning</p>
+            <div class="pill-group">
+              <span class="pill">Laravel</span>
+              <span class="pill">NestJS</span>
+              <span class="pill">HonoJS</span>
+              <span class="pill">REST APIs</span>
+              <span class="pill">Event-Driven</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 24px;">
+        <h2>Highlights</h2>
+        <div class="two-col">
+          <div>
+            <h3>Cellus Impact</h3>
+            <p>
+              Delivered a scalable backend foundation for Cellus, supporting enterprise growth with
+              fault-tolerant services and data pipelines.
+            </p>
+            <ul>
+              <li>Streamlined approval flows and automated compliance reporting.</li>
+              <li>Hardened auth flows with role-based access policies.</li>
+              <li>Enabled integrations with external ERPs and CRM systems.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>How I Work</h3>
+            <p>
+              Balance performance and maintainability by building predictable APIs, reusable modules,
+              and pragmatic test suites.
+            </p>
+            <ul>
+              <li>Partner with product to scope reliable releases.</li>
+              <li>Document service contracts and runbooks.</li>
+              <li>Coach teams on backend best practices.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">Available for backend consulting and full-time roles.</div>
+    </main>
+  </body>
+</html>
