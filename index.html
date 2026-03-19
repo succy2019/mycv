@@ -281,11 +281,72 @@
       @media (max-width: 600px) {
         .hero {
           padding: 24px;
+          grid-template-columns: 1fr;
+          text-align: center;
         }
 
         .meta {
           flex-direction: column;
           gap: 10px;
+        }
+
+        .avatar {
+          width: min(150px, 35vw);
+          margin: 16px auto 0;
+        }
+
+        .hero-portrait {
+          order: -1;
+          margin-bottom: 16px;
+        }
+      }
+
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact !important;
+          color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        body {
+          background: radial-gradient(1200px 600px at 10% -10%, rgba(122, 162, 255, 0.18), transparent),
+            radial-gradient(900px 500px at 95% 0%, rgba(100, 241, 181, 0.14), transparent),
+            var(--bg) !important;
+        }
+
+        .hero {
+          background: linear-gradient(140deg, rgba(20, 26, 33, 0.9), rgba(20, 26, 33, 0.6)) !important;
+          border: 1px solid var(--line) !important;
+          box-shadow: var(--shadow) !important;
+        }
+
+        .card {
+          background: var(--card) !important;
+          border: 1px solid var(--line) !important;
+          box-shadow: var(--shadow) !important;
+        }
+
+        .avatar {
+          background: linear-gradient(160deg, rgba(122, 162, 255, 0.22), rgba(100, 241, 181, 0.12)) !important;
+          border: 1px solid rgba(122, 162, 255, 0.4) !important;
+        }
+
+        .pill {
+          background: rgba(100, 241, 181, 0.08) !important;
+          border: 1px solid rgba(100, 241, 181, 0.3) !important;
+        }
+
+        .project {
+          border-left: 2px solid rgba(122, 162, 255, 0.6) !important;
+        }
+
+        .page {
+          padding: 24px 16px;
+        }
+
+        @page {
+          margin: 0.5in;
+          size: A4;
         }
       }
     </style>
@@ -300,15 +361,14 @@
             thoughtful API design, and measurable performance gains.
           </p>
           <div class="meta">
-            <span>Location: Remote / On-site</span>
+            <span>Location: Remote</span>
             <span>Email: successoghenede2@gmail.com</span>
             <span>GitHub: https://github.com/succy2019</span>
           </div>
         </div>
         <div class="hero-portrait">
           <div class="avatar">
-            <!-- Replace with your photo: <img src="your-photo.jpg" alt="Your Name" /> -->
-            Your Photo
+            <img src="success.jpeg" alt="Oghenede Success Odiri" />
           </div>
         </div>
       </section>
@@ -318,19 +378,19 @@
           <h2>Experience</h2>
           <div class="timeline">
             <div class="role">
-              <h3>Backend Developer (Remote)</h3>
+              <h3>Remote Backend Developer</h3>
               <div class="tagline">
-                <span>Marolt Agency, Warri</span>
-                <span>2022 - Present</span>
+                <span>Aegean Technology, Cross River State</span>
+                <span>2023 - Present</span>
               </div>
               <p>
-                Building and maintaining backend services for client projects, focusing on reliability,
-                security, and API consistency across deployments.
+                Currently working as a remote backend developer, building scalable backend solutions
+                and maintaining high-performance systems for enterprise applications.
               </p>
               <ul>
-                <li>Deliver REST APIs and integrations with Laravel and NestJS.</li>
-                <li>Collaborate with product and QA to ship stable releases.</li>
-                <li>Support ongoing maintenance and performance tuning.</li>
+                <li>Develop and maintain backend services using modern frameworks.</li>
+                <li>Design and implement robust API architectures.</li>
+                <li>Collaborate with distributed teams to deliver quality solutions.</li>
               </ul>
             </div>
             <div class="role">
@@ -347,6 +407,40 @@
                 <li>Implemented core services and integrations for Cellus launch readiness.</li>
                 <li>Led backend delivery for https://jobs.eleastar.com.</li>
                 <li>Designed clean APIs with Laravel, NestJS, and HonoJS.</li>
+              </ul>
+            </div>
+            <div class="role">
+              <h3>Backend Developer (Remote)</h3>
+              <div class="tagline">
+                <span>Marolt Agency, Warri</span>
+                <span>2022 - Present</span>
+              </div>
+              <p>
+                Built and maintained backend services for client projects, focusing on reliability,
+                security, and API consistency. Currently building a comprehensive travel agency platform
+                that will be launching soon.
+              </p>
+              <ul>
+                <li>Currently developing a travel agency backend system with booking and management features.</li>
+                <li>Delivered REST APIs and integrations with Laravel and NestJS for various client projects.</li>
+                <li>Collaborated with product and QA teams to ship stable releases.</li>
+                <li>Provided ongoing maintenance and performance tuning for deployed systems.</li>
+              </ul>
+            </div>
+            <div class="role">
+              <h3>Senior Backend Developer</h3>
+              <div class="tagline">
+                <span>Succyhosting</span>
+                <span>2020 - 2022</span>
+              </div>
+              <p>
+                Served as senior backend developer, leading the development of hosting platform services
+                and implementing scalable solutions for web hosting infrastructure.
+              </p>
+              <ul>
+                <li>Led backend architecture decisions and implementation strategies.</li>
+                <li>Developed hosting management systems and automation tools.</li>
+                <li>Mentored junior developers and established coding standards.</li>
               </ul>
             </div>
           </div>
@@ -371,22 +465,50 @@
       </section>
 
       <section class="card" style="margin-top: 24px;">
-        <h2>Highlights</h2>
+        <h2>Projects</h2>
+        <div class="project">
+          <h3><span class="accent">Task Manager Application</span></h3>
+          <p>
+            Designed and developed a comprehensive task management system using HonoJS framework,
+            demonstrating expertise in modern backend development patterns.
+          </p>
+          <ul>
+            <li>Built with HonoJS for high-performance API endpoints.</li>
+            <li>Implemented task creation, management, and tracking features.</li>
+            <li>Available on GitHub: <a href="https://github.com/succy2019/taskmanager" target="_blank" style="color: var(--accent);">github.com/succy2019/taskmanager</a></li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3><span class="accent">Cellus Enterprise Platform</span></h3>
+          <p>
+            Delivered a scalable backend foundation for Cellus, supporting enterprise growth with
+            fault-tolerant services and data pipelines.
+          </p>
+          <ul>
+            <li>Streamlined approval flows and automated compliance reporting.</li>
+            <li>Hardened auth flows with role-based access policies.</li>
+            <li>Enabled integrations with external ERPs and CRM systems.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3><span class="accent">Eleastar Jobs Platform</span></h3>
+          <p>
+            Led backend development for the complete job platform at https://jobs.eleastar.com
+            focusing on scalability and user experience.
+          </p>
+          <ul>
+            <li>Designed and implemented job posting and application systems.</li>
+            <li>Built comprehensive search and filtering capabilities.</li>
+            <li>Integrated with multiple third-party services and APIs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 24px;">
+        <h2>Professional Philosophy</h2>
         <div class="two-col">
           <div>
-            <h3>Cellus Impact</h3>
-            <p>
-              Delivered a scalable backend foundation for Cellus, supporting enterprise growth with
-              fault-tolerant services and data pipelines.
-            </p>
-            <ul>
-              <li>Streamlined approval flows and automated compliance reporting.</li>
-              <li>Hardened auth flows with role-based access policies.</li>
-              <li>Enabled integrations with external ERPs and CRM systems.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>How I Work</h3>
+            <h3>Technical Excellence</h3>
             <p>
               Balance performance and maintainability by building predictable APIs, reusable modules,
               and pragmatic test suites.
@@ -395,6 +517,18 @@
               <li>Partner with product to scope reliable releases.</li>
               <li>Document service contracts and runbooks.</li>
               <li>Coach teams on backend best practices.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Leadership & Growth</h3>
+            <p>
+              Focus on continuous learning and knowledge sharing, having progressed from backend
+              developer to senior roles across multiple organizations.
+            </p>
+            <ul>
+              <li>Mentor junior developers and establish coding standards.</li>
+              <li>Lead architectural decisions and implementation strategies.</li>
+              <li>Collaborate effectively with remote and distributed teams.</li>
             </ul>
           </div>
         </div>
