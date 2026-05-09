@@ -25,6 +25,12 @@
 
       * {
         box-sizing: border-box;
+        min-width: 0;
+      }
+
+      p, li, a, span {
+        overflow-wrap: break-word;
+        word-break: break-word;
       }
 
       html,
@@ -34,6 +40,7 @@
 
       body {
         margin: 0;
+        overflow-x: hidden;
         color: var(--ink);
         background: radial-gradient(1200px 600px at 10% -10%, rgba(122, 162, 255, 0.18), transparent),
           radial-gradient(900px 500px at 95% 0%, rgba(100, 241, 181, 0.14), transparent),
@@ -45,7 +52,7 @@
       .page {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 48px 24px 80px;
+        padding: 32px 16px 60px;
       }
 
       .hero {
@@ -107,7 +114,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(2.4rem, 3.8vw, 3.5rem);
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
         margin: 0 0 8px;
         text-transform: uppercase;
         letter-spacing: 1.8px;
@@ -266,6 +273,21 @@
         }
       }
 
+      @media (min-width: 560px) {
+        .hero {
+          grid-template-columns: 1fr auto;
+          align-items: center;
+        }
+
+        .avatar {
+          width: 120px;
+        }
+
+        .page {
+          padding: 40px 20px 70px;
+        }
+      }
+
       @media (min-width: 860px) {
         .grid {
           grid-template-columns: 1.1fr 0.9fr;
@@ -276,28 +298,45 @@
           grid-template-columns: 1.2fr 0.6fr;
           align-items: center;
         }
+
+        .avatar {
+          width: min(180px, 18vw);
+        }
+
+        .page {
+          padding: 48px 24px 80px;
+        }
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 559px) {
         .hero {
-          padding: 24px;
+          padding: 20px;
           grid-template-columns: 1fr;
           text-align: center;
         }
 
         .meta {
           flex-direction: column;
-          gap: 10px;
+          align-items: center;
+          gap: 8px;
         }
 
         .avatar {
-          width: min(150px, 35vw);
-          margin: 16px auto 0;
+          width: min(130px, 35vw);
+          margin: 12px auto 0;
         }
 
         .hero-portrait {
           order: -1;
-          margin-bottom: 16px;
+          margin-bottom: 12px;
+        }
+
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          padding: 18px 16px;
         }
       }
 
